@@ -7,4 +7,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AWSSDK.APIGateway" Version="3.7.400.21" />
+    <PackageReference Include="LocalStack.Client" Version="1.4.1" />
+    <PackageReference Include="LocalStack.Client.Extensions" Version="1.2.2" />
+  </ItemGroup>
+
 </Project>

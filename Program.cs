@@ -1,2 +1,21 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using LocalStack.Client;
+using LocalStack.Client.Options;
+using Amazon.APIGateway;
+
+Environment.SetEnvironmentVariable("AWS_SERVICE_URL", string.Empty);
+
+var sessionOptions = new SessionOptions();
+
+var configOptions = new ConfigOptions();
+
+var session = SessionStandalone
+    .Init()
+    .WithSessionOptions(sessionOptions)
+    .WithConfigurationOptions(configOptions).Create();
+
+var client = new AmazonAPIGatewayClient(new AmazonAPIGatewayConfig { ServiceURL = "http://localhost:4566" });
+await client.CreateRestApiAsync(new() { Name= Guid.NewGuid().ToString() });
+
+var localstackClient = session.CreateClientByImplementation<AmazonAPIGatewayClient>();
+
+await localstackClient.CreateRestApiAsync(new() { Name = Guid.NewGuid().ToString() });
