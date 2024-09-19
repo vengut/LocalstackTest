@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AWSSDK.APIGateway" Version="3.7.400.43" />
+    <PackageReference Include="LocalStack.Client" Version="1.5.0" />
+    <PackageReference Include="LocalStack.Client.Extensions" Version="1.3.0" />
+    <PackageReference Include="Testcontainers.LocalStack" Version="3.10.0" />
+  </ItemGroup>
+
+</Project>
