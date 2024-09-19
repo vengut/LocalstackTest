@@ -13,9 +13,6 @@ var session = SessionStandalone
     .WithSessionOptions(sessionOptions)
     .WithConfigurationOptions(configOptions).Create();
 
-var client = new AmazonAPIGatewayClient(new AmazonAPIGatewayConfig { ServiceURL = "http://localhost:4566" });
-await client.CreateRestApiAsync(new() { Name= Guid.NewGuid().ToString() });
-
 var localstackClient = session.CreateClientByImplementation<AmazonAPIGatewayClient>();
 
 await localstackClient.CreateRestApiAsync(new() { Name = Guid.NewGuid().ToString() });
