@@ -32,6 +32,6 @@ var session = SessionStandalone
     .WithSessionOptions(new SessionOptions())
     .WithConfigurationOptions(new ConfigOptions())
     .Create();
-var apiGatewayClient = session.CreateClientByImplementation<AmazonAPIGatewayClient>();
-await apiGatewayClient.CreateRestApiAsync(new() { Name = Guid.NewGuid().ToString() });
+var autoClient = session.CreateClientByImplementation<AmazonAPIGatewayClient>();
+await autoClient.CreateRestApiAsync(new() { Name = Guid.NewGuid().ToString() });
 Console.WriteLine("Created REST API using auto configured client");
