@@ -6,7 +6,7 @@ using Amazon;
 using Amazon.Runtime;
 
 var container = new LocalStackBuilder()
-    .WithImage($"localstack/localstack:3.8.1")
+    .WithImage($"localstack/localstack:latest")
     .WithName($"localStack-latest-{Guid.NewGuid().ToString().ToUpperInvariant()}")
     .WithEnvironment("DOCKER_HOST", "unix:///var/run/docker.sock")
     .WithEnvironment("DEBUG", "1")
